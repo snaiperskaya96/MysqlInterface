@@ -18,6 +18,7 @@ namespace MysqlListener {
     private:
         sql::Driver* Driver;
         sql::Connection* Connection;
+        std::string UsersTable;
 
     public:
         static Mysql& GetInstance()
@@ -35,6 +36,8 @@ namespace MysqlListener {
 
     protected:
         Mysql();
+
+
     };
 }
 

@@ -6,7 +6,6 @@ cmake_minimum_required(VERSION 3.7)
 project(MysqlListener)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++11")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 add_subdirectory(ThirdParty/SimpleJSON)
@@ -14,7 +13,7 @@ add_subdirectory(ThirdParty/mysql-connector)
 
 find_package(Boost 1.48.0 REQUIRED)
 
-set(SOURCE_FILES main.cpp Source/Server/Server.cpp Source/Server/Server.h Source/Util/Util.h Source/Util/Util.cpp Source/Server/Socket.cpp Source/Server/Socket.h Source/Mysql/Mysql.cpp Source/Mysql/Mysql.h Source/config.h Source/Util/Ini/INIReader.cpp Source/Util/Ini/INIReader.h Source/Util/Ini/ini.c Source/Util/Ini/ini.h Source/Util/Sha256/Sha256.cpp Source/Util/Sha256/Sha256.h)
+set(SOURCE_FILES main.cpp Source/Server/Server.cpp Source/Server/Server.h Source/Util/Util.h Source/Util/Util.cpp Source/Server/Socket.cpp Source/Server/Socket.h Source/Mysql/Mysql.cpp Source/Mysql/Mysql.h Source/Util/Ini/INIReader.cpp Source/Util/Ini/INIReader.h Source/Util/Ini/ini.c Source/Util/Ini/ini.h Source/Util/Sha256/Sha256.cpp Source/Util/Sha256/Sha256.h)
 add_executable(MysqlListener ${SOURCE_FILES})
 target_include_directories(MysqlListener PUBLIC Source/ ThirdParty/SimpleJSON ThirdParty/mysql-connector ThirdParty/mysql-connector/driver ${Boost_INCLUDE_DIRS})
 target_link_libraries(MysqlListener SimpleJSON mysqlcppconn-static ${Boost_LIBRARIES})

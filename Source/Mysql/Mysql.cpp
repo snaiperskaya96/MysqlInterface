@@ -19,13 +19,14 @@ MysqlListener::Mysql::Mysql()
     Driver = get_driver_instance();
     Connection = Driver->connect(Host, Reader.Get("mysql", "username", "root"), Reader.Get("mysql", "password", "root"));
     Connection->setSchema(Reader.Get("mysql", "schema", "ue4"));
+    UsersTable = Reader.Get("mysql", "users-table", "users");
 }
 
 
 bool MysqlListener::Mysql::Login(std::string Username, std::string Password)
 {
     bool Valid = false;
-    sql::PreparedStatement* PreparedStatement = Connection->prepareStatement("SELECT * FROM users WHERE username = ? LIMIT 1");
+    sql::PreparedStatement* PreparedStatement = Connection->prepareStatement("SELECT * FROM " + UsersTable + " WHERE username = ? LIMIT 1");
     PreparedStatement->setString(1, Username);
     sql::ResultSet* Result = PreparedStatement->executeQuery();
 
