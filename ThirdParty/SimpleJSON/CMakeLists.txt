@@ -1,5 +1,5 @@
 #https://github.com/MJPA/SimpleJSON
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.0)
 project(SimpleJSON)
 
 set(CMAKE_CXX_STANDARD 11)

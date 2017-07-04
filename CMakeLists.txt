@@ -2,12 +2,13 @@
 #mysql-connector from Oracle
 #Sha256 from zedwood - http://www.zedwood.com/article/cpp-sha256-function
 #IniReader from benhoyt - https://github.com/benhoyt/inih
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.0)
 project(MysqlListener)
 
 set(CMAKE_CXX_STANDARD 11)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
+
 add_subdirectory(ThirdParty/SimpleJSON)
 add_subdirectory(ThirdParty/mysql-connector)
 
